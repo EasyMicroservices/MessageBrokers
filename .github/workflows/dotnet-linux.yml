@@ -18,6 +18,12 @@ jobs:
             6.0.x
             7.0.x
             8.0.x
+      - name: Start RabbitMQ
+        uses: Namoshek/rabbitmq-github-action@v1
+        with:
+          version: '3.8.9'
+          ports: '1883:1883 8883:8883'
+          definitions: ${{ github.workspace }}/.ci/definitions.json
       - name: Restore dependencies
         run: dotnet restore ./src/CSharp/EasyMicroservices.MessageBrokers.sln
       - name: Build
