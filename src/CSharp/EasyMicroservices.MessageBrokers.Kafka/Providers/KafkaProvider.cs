@@ -4,16 +4,28 @@ using EasyMicroservices.MessageBrokers.Models.Requests;
 using EasyMicroservices.Serialization.Interfaces;
 
 namespace EasyMicroservices.MessageBrokers.Kafka.Providers;
+/// <summary>
+/// 
+/// </summary>
 public class KafkaProvider : IMessageBrokerProvider
 {
     ProducerConfig _producerConfig;
     ITextSerializationProvider _serializer;
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="producerConfig"></param>
+    /// <param name="serializer"></param>
     public KafkaProvider(ProducerConfig producerConfig, ITextSerializationProvider serializer)
     {
         _serializer = serializer;
         _producerConfig = producerConfig;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="serializer"></param>
     public KafkaProvider(ITextSerializationProvider serializer)
     {
         _serializer = serializer;
@@ -23,6 +35,12 @@ public class KafkaProvider : IMessageBrokerProvider
         };
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="messageRequest"></param>
+    /// <returns></returns>
     public async Task SendAsync<T>(MessageRequest<T> messageRequest)
     {
         using (var p = new ProducerBuilder<Null, string>(_producerConfig).Build())
@@ -39,6 +57,13 @@ public class KafkaProvider : IMessageBrokerProvider
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="subscribeRequest"></param>
+    /// <param name="handler"></param>
+    /// <returns></returns>
     public Task SubscribeAsync<T>(SubscribeRequest subscribeRequest, IMessageHandler<T> handler)
     {
         var conf = new ConsumerConfig
@@ -77,7 +102,7 @@ public class KafkaProvider : IMessageBrokerProvider
                 }
                 catch (Exception ex)
                 {
-
+                    var a = ex;
                 }
                 await Task.Delay(TimeSpan.FromSeconds(5));
             }
@@ -91,6 +116,12 @@ public class KafkaProvider : IMessageBrokerProvider
         await handler.HandleMessage(message);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="subscribeRequest"></param>
+    /// <returns></returns>
+    /// <exception cref="NotImplementedException"></exception>
     public Task UnsubscribeAsync(SubscribeRequest subscribeRequest)
     {
         throw new NotImplementedException();
