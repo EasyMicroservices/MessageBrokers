@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  
+  <Choose>
+    <When Condition="$(SolutionFileName.Contains('-net'))">
+      <PropertyGroup>
+        <TargetFramework>$(SolutionFileName.Split('-')[1].Replace('.sln',''))</TargetFramework>
+      </PropertyGroup>
+    </When>
+    <Otherwise>
+      <PropertyGroup>
+        <TargetFrameworks>net6.0;net48;net7.0;net8.0</TargetFrameworks>
+      </PropertyGroup>
+    </Otherwise>
+  </Choose>
+
+  <PropertyGroup>
+    <Platforms>AnyCPU;x64;x86</Platforms>
+    <Authors>EasyMicroservices</Authors>
+    <IsPackable>true</IsPackable>
+    <Version>0.0.0.1</Version>
+    <Description>wrapper of messagebrokers</Description>
+    <Copyright>EasyMicroservices@gmail.com</Copyright>
+    <PackageTags>messagebus,bus,messagebroker,mqtt,rabbitmq,activemq,kafka</PackageTags>
+    <PackageProjectUrl>https://github.com/EasyMicroservices/MessageBrokers</PackageProjectUrl>
+    <LangVersion>latest</LangVersion>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DocumentationFile>.\bin\$(Configuration)\$(TargetFramework)\EasyMicroservices.MessageBrokers.RabbitMQ.xml</DocumentationFile>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EasyMicroservices.Serialization" Version="0.0.0.8" />
+    <PackageReference Include="RabbitMQ.Client" Version="6.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EasyMicroservices.MessageBrokers\EasyMicroservices.MessageBrokers.csproj" />
+  </ItemGroup>
+  
+</Project>

@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyMicroservices.MessageBrokers", "EasyMicroservices.MessageBrokers\EasyMicroservices.MessageBrokers.csproj", "{B9E01935-6B67-4407-8269-53F59FCBF98B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Abstractions", "Abstractions", "{9460AE01-A866-4713-B124-BC25C107D23A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Implementations", "Implementations", "{5ABD0B18-35D0-4397-B8AE-BC4789D0DD9A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{2CC68881-509D-4CB0-98CC-C90E1A3F8522}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyMicroservices.MessageBrokers.RabbitMQ", "EasyMicroservices.MessageBrokers.RabbitMQ\EasyMicroservices.MessageBrokers.RabbitMQ.csproj", "{E5719D30-A216-4C04-AE18-CC7F6668BB8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyMicroservices.MessageBrokers.Kafka", "EasyMicroservices.MessageBrokers.Kafka\EasyMicroservices.MessageBrokers.Kafka.csproj", "{2CED39FB-41D9-4C8A-87AC-7F0FF119D0D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyMicroservices.MessageBrokers.ActiveMQ", "EasyMicroservices.MessageBrokers.ActiveMQ\EasyMicroservices.MessageBrokers.ActiveMQ.csproj", "{40411F55-CC40-4E2F-A6F1-15BCD8EE2EA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyMicroservices.MessageBrokers.Tests", "EasyMicroservices.MessageBrokers.Tests\EasyMicroservices.MessageBrokers.Tests.csproj", "{192E27FA-7B3B-44E9-9BCB-514CF3C37287}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9E01935-6B67-4407-8269-53F59FCBF98B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9E01935-6B67-4407-8269-53F59FCBF98B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9E01935-6B67-4407-8269-53F59FCBF98B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9E01935-6B67-4407-8269-53F59FCBF98B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5719D30-A216-4C04-AE18-CC7F6668BB8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5719D30-A216-4C04-AE18-CC7F6668BB8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5719D30-A216-4C04-AE18-CC7F6668BB8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5719D30-A216-4C04-AE18-CC7F6668BB8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CED39FB-41D9-4C8A-87AC-7F0FF119D0D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CED39FB-41D9-4C8A-87AC-7F0FF119D0D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CED39FB-41D9-4C8A-87AC-7F0FF119D0D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CED39FB-41D9-4C8A-87AC-7F0FF119D0D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40411F55-CC40-4E2F-A6F1-15BCD8EE2EA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40411F55-CC40-4E2F-A6F1-15BCD8EE2EA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40411F55-CC40-4E2F-A6F1-15BCD8EE2EA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40411F55-CC40-4E2F-A6F1-15BCD8EE2EA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{192E27FA-7B3B-44E9-9BCB-514CF3C37287}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{192E27FA-7B3B-44E9-9BCB-514CF3C37287}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{192E27FA-7B3B-44E9-9BCB-514CF3C37287}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{192E27FA-7B3B-44E9-9BCB-514CF3C37287}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B9E01935-6B67-4407-8269-53F59FCBF98B} = {9460AE01-A866-4713-B124-BC25C107D23A}
+		{E5719D30-A216-4C04-AE18-CC7F6668BB8D} = {5ABD0B18-35D0-4397-B8AE-BC4789D0DD9A}
+		{2CED39FB-41D9-4C8A-87AC-7F0FF119D0D9} = {5ABD0B18-35D0-4397-B8AE-BC4789D0DD9A}
+		{40411F55-CC40-4E2F-A6F1-15BCD8EE2EA3} = {5ABD0B18-35D0-4397-B8AE-BC4789D0DD9A}
+		{192E27FA-7B3B-44E9-9BCB-514CF3C37287} = {2CC68881-509D-4CB0-98CC-C90E1A3F8522}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6C36DB93-3411-45A9-ACAB-14C0EF9E4503}
+	EndGlobalSection
+EndGlobal
