@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Choose>
+    <When Condition="$(SolutionFileName.Contains('-net'))">
+      <PropertyGroup>
+        <TargetFramework>$(SolutionFileName.Split('-')[1].Replace('.sln',''))</TargetFramework>
+      </PropertyGroup>
+    </When>
+    <Otherwise>
+      <PropertyGroup>
+        <TargetFrameworks>net6.0;net48;net7.0;net8.0</TargetFrameworks>
+      </PropertyGroup>
+    </Otherwise>
+  </Choose>
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EasyMicroservices.Serialization.Newtonsoft.Json" Version="0.0.0.8" />
+    <PackageReference Include="EasyMicroservices.Tests" Version="0.0.0.9" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EasyMicroservices.MessageBrokers.ActiveMQ\EasyMicroservices.MessageBrokers.ActiveMQ.csproj" />
+    <ProjectReference Include="..\EasyMicroservices.MessageBrokers.Kafka\EasyMicroservices.MessageBrokers.Kafka.csproj" />
+    <ProjectReference Include="..\EasyMicroservices.MessageBrokers.RabbitMQ\EasyMicroservices.MessageBrokers.RabbitMQ.csproj" />
+  </ItemGroup>
+  
+</Project>
