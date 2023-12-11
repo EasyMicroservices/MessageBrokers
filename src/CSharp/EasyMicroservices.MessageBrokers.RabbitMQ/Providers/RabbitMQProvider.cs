@@ -6,16 +6,27 @@ using RabbitMQ.Client.Events;
 using System.Text;
 
 namespace EasyMicroservices.MessageBrokers.RabbitMQ.Providers;
+/// <summary>
+/// 
+/// </summary>
 public class RabbitMQProvider : IMessageBrokerProvider
 {
     ConnectionFactory _connectionFactory;
     ITextSerializationProvider _serializer;
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="connectionFactory"></param>
+    /// <param name="serializer"></param>
     public RabbitMQProvider(ConnectionFactory connectionFactory, ITextSerializationProvider serializer)
     {
         _serializer = serializer;
         _connectionFactory = connectionFactory;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="serializer"></param>
     public RabbitMQProvider(ITextSerializationProvider serializer)
     {
         _serializer = serializer;
@@ -24,7 +35,12 @@ public class RabbitMQProvider : IMessageBrokerProvider
             HostName = "localhost"
         };
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="messageRequest"></param>
+    /// <returns></returns>
     public Task SendAsync<T>(MessageRequest<T> messageRequest)
     {
         using (var connection = _connectionFactory.CreateConnection())
@@ -48,6 +64,13 @@ public class RabbitMQProvider : IMessageBrokerProvider
         return Task.CompletedTask;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="subscribeRequest"></param>
+    /// <param name="handler"></param>
+    /// <returns></returns>
     public Task SubscribeAsync<T>(SubscribeRequest subscribeRequest, IMessageHandler<T> handler)
     {
         var connection = _connectionFactory.CreateConnection();
@@ -74,6 +97,12 @@ public class RabbitMQProvider : IMessageBrokerProvider
         await handler.HandleMessage(message);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="subscribeRequest"></param>
+    /// <returns></returns>
+    /// <exception cref="NotImplementedException"></exception>
     public Task UnsubscribeAsync(SubscribeRequest subscribeRequest)
     {
         throw new NotImplementedException();

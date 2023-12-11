@@ -1,15 +1,33 @@
 ﻿using EasyMicroservices.MessageBrokers.Models.Requests;
 
 namespace EasyMicroservices.MessageBrokers.Interfaces;
+/// <summary>
+/// 
+/// </summary>
 public interface IMessageBrokerProvider
 {
-    // Publish a message to a topic or queue
+    /// <summary>
+    /// Publish a message to a topic or queue
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="messageRequest"></param>
+    /// <returns></returns>
     Task SendAsync<T>(MessageRequest<T> messageRequest);
 
-    // Subscribe to a topic or queue
+    /// <summary>
+    /// Subscribe to a topic or queue
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="subscribeRequest"></param>
+    /// <param name="handler"></param>
+    /// <returns></returns>
     Task SubscribeAsync<T>(SubscribeRequest subscribeRequest, IMessageHandler<T> handler);
 
-    // Unsubscribe from a topic or queue
+    /// <summary>
+    /// Unsubscribe from a topic or queue
+    /// </summary>
+    /// <param name="subscribeRequest"></param>
+    /// <returns></returns>
     Task UnsubscribeAsync(SubscribeRequest subscribeRequest);
 
     //// Acknowledge that a message has been processed successfully
