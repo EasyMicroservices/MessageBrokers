@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  
+  <Choose>
+    <When Condition="$(SolutionFileName.Contains('-net'))">
+      <PropertyGroup>
+        <TargetFramework>$(SolutionFileName.Split('-')[1].Replace('.sln',''))</TargetFramework>
+      </PropertyGroup>
+    </When>
+    <Otherwise>
+      <PropertyGroup>
+        <TargetFrameworks>net6.0;net48;net7.0;net8.0</TargetFrameworks>
+      </PropertyGroup>
+    </Otherwise>
+  </Choose>
+  
+  <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EasyMicroservices.MessageBrokers\EasyMicroservices.MessageBrokers.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Apache.NMS.ActiveMQ" Version="2.1.0" />
+  </ItemGroup>
+  
+</Project>
