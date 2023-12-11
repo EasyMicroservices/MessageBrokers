@@ -23,7 +23,9 @@ jobs:
         with:
           version: '3.8.9'
           ports: '1883:1883 8883:8883'
-          definitions: ${{ github.workspace }}/.ci/definitions.json
+          definitions: ${{ github.workspace }}/.ci/definitions.json   
+      - name: Setup Kafka
+        uses: bbcCorp/kafka-actions@v1
       - name: Restore dependencies
         run: dotnet restore ./src/CSharp/EasyMicroservices.MessageBrokers.sln
       - name: Build
